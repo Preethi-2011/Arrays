@@ -1,0 +1,45 @@
+package com.mic;
+
+import java.util.*;
+public class PalindromeArray {
+	static boolean Pali(String str) {
+	int flag=0;
+	for(int i=0;i<=str.length()-1;i++)
+	{
+		if(str.charAt(i)!=str.charAt(str.length()-i-1)) {
+			flag=1;
+			break;
+		}
+	}
+	if(flag==1) {
+		return false;
+	}
+	else {
+		return true;
+	}
+}
+	static ArrayList<String> AllPalind(String arr[],int N){
+		ArrayList<String> array=new ArrayList<String>();
+			
+		
+		for(int i=0;i<N;i++) {
+			if(Pali(arr[i])) {
+				array.add(arr[i]);
+			}
+		}
+		return array;
+	}
+	
+	public static void main (String[] args) {
+		String arr[]= {"abc","bcd","aba","cfg","madam"};
+		int N=arr.length;
+		ArrayList<String> t=AllPalind(arr,N);
+		if(t.size()==0)
+		{
+			System.out.println("-1");
+		}
+		for(String stri:t) {
+			System.out.println(stri+"");
+		}
+	}
+}
